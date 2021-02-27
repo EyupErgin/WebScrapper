@@ -1,4 +1,4 @@
-#İç = Part1
+#İç Yapı = Part1
 import sys
 from requests import get
 from fuzzywuzzy import fuzz
@@ -11,11 +11,20 @@ init(autoreset=True)
 #Modüller = Part2
 saveInFile = "--save" in sys.argv
 
-query = input(Fore.WHITE + 'Taranacak Kelimeyi Giriniz > ' + Fore.WHITE)
-results = 100
+print("""
+###      ###  _____         _    ___     _     _   
+#	 o # |_   _|  _ _ _| |__/ _ \ __(_)_ _| |_ 
+	       | || || | '_| / / (_) (_-< | ' \  _|
+               |_| \_,_|_| |_\_\\___//__/_|_||_\__|
+#	   # Proje Adı: https://github.com/TurkOsint
+###      ### Kodlayan : https://github.com/EyupErgin
+""")
+
+query = input(Fore.WHITE + '[TurkOsint] Taranacak Kelimeleri Giriniz > ' + Fore.WHITE)
+results = 10000
 
 #Modüller = Part3
-print(Fore.WHITE + '[/] TARANIYOR ' + query)
+print(Fore.WHITE + '[TurkOsint] Taranıyor > ' + query)
 for url in search(query, stop = results):
 	print('\n' + Fore.GREEN + '[+] Url Tespit Edildi: ' + Fore.WHITE+  url)
 	if saveInFile:
@@ -57,6 +66,6 @@ for url in search(query, stop = results):
 	except:
 		continue
 	if links_detected == []:
-		print(Fore.RED + '[-] Veri Bulunamadı')
+		print(Fore.RED + '[-] İç Veri Bulunamadı')
 
 
