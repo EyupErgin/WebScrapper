@@ -8,6 +8,14 @@ from colorama import Fore, Back, Style, init
 
 init(autoreset=True)
 
+#UserAgent = Part 8
+headers = headers={
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0',
+'Accept-Language' : 'tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3',
+'Accept-Encoding' : 'gzip, deflate',
+'Content-Type' : 'application/ocsp-request'}
+
+
 #Modüller = Part2
 saveInFile = "--save" in sys.argv
 
@@ -31,7 +39,7 @@ for url in search(query, stop = results):
 		with open(query + ".txt", "a") as file:
 			file.write(url + "\n")
 	try:
-		text = get(url, timeout = 1).text
+		text = get(url, headers=headers, timeout = 1).text
 	except:
 		continue
 	soup = BeautifulSoup(text, "html.parser")
@@ -67,5 +75,3 @@ for url in search(query, stop = results):
 		continue
 	if links_detected == []:
 		print(Fore.RED + '[-] İç Veri Bulunamadı')
-
-
