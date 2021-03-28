@@ -96,6 +96,7 @@ user@user:~$ cat site:eyupergin.com.txt
 ```
 
 <h3 align="left">Example 4 : PDF </h2>
+
 ```
 python3 WebScrapper.py
 
@@ -111,6 +112,7 @@ Scanning > site:github.com filetype:pdf
 [+] URL Detected : https://www.github.com/cdrfiuba/programador/wiki/At89S8253_errata.pdf
 [+] Title: AT89 Microcontrollers
 [-] Internal Data Not Found
+
 ```
 
 <h2 align="left">To-Do:</h2>
@@ -118,7 +120,7 @@ Scanning > site:github.com filetype:pdf
 - [x]  Infrastructure Will Be Changed
 - [x]  Modular Building Will Be Brought
 - [x]  Arguments Will Be Replaced
-- [] Url Scrapper
+- [ ] Url Scrapper
 
 <h2 align="left">Developers:</h2>
 
