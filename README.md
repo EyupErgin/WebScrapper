@@ -120,7 +120,7 @@ Scanning > site:github.com filetype:pdf
 - [x]  Infrastructure Will Be Changed
 - [x]  Modular Building Will Be Brought
 - [x]  Arguments Will Be Replaced
-- [ ] Url Scrapper
+- [ ] URL Scrapper
 
 <h2 align="left">Developers:</h2>
 
