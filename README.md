@@ -1,27 +1,67 @@
 <p align="center">
-  <img src="https://github.com/TurkOsint/About/blob/main/image/TurkOsint50.png?raw=true" alt="TurkOsint" width="250" />
+  <img src="https://github.com/IntelSights/About/blob/main/img/IntelSights.png?raw=true" alt="IntelSights" width="250" />
 </p>
 
 <h1 align="center">WebScrapper</h1>
 
-Sizin yerinizie otomatize şekilde google üzerinde arama yapıp otomasyon haline getiren araçtır.
+It is a tool written for digging data on the web.
 
-<h2 align="left">Kurulum:</h2>
+<h2 align="left">Features:</h2>
+
+- [x] Dork Support
+- [x] Website URL
+- [x] Website Title
+- [x] Website Info
+- [x] PDF Text Scanner
+
+
+<h2 align="left">Installing:</h2>
 
 ```
-https://github.com/TurkOsint/WebScrapper.git
+git clone https://github.com/IntelSights/WebScrapper.git
+
 ```
 
-<h2 align="left">Kullanım:</h2>
+<h2 align="left">Using:</h2>
 
 ```
 cd WebScrapper/
 
-python3 WebScrapper.py 
+pip3 install -r requirements.txt
+
+python3 WebScrapper.py  
+
 ```
 
-<h2 align="left">Yapılacaklar:</h2>
+<h2 align="left">Example:</h2>
 
-- [ ] Altyapı Değiştirilecek
-- [ ] Mödüler Yapı Getirilecek
-- [ ] Argümanlar Değiştirilecek
+<h3 align="left">Example 1 : Basic</h2>
+
+```
+python3 WebScrapper.py  
+
+Output;
+
+Enter Dork : Bill Gates
+Scanning > Bill Gates
+
+[+] URL Detected : https://www.gatesnotes.com/
+[+] Title: Access Denied
+[-] Internal Data Not Found
+
+[+] URL Detected : https://en.wikipedia.org/wiki/Bill_Gates
+[+] Title: Bill Gates - Wikipedia
+```
+
+
+<h2 align="left">To-Do:</h2>
+
+- [x] 
+- [x] 
+- [x] 
+
+<h2 align="left">Developers:</h2>
+
+[@EyupErgin](https://github.com/eyupergin)
+
+
