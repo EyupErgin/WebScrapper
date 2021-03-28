@@ -1,4 +1,4 @@
-#İç Yapı = Part1
+
 import sys
 from requests import get
 from fuzzywuzzy import fuzz
@@ -8,70 +8,62 @@ from colorama import Fore, Back, Style, init
 
 init(autoreset=True)
 
-#UserAgent = Part 8
-headers = headers={
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0',
-'Accept-Language' : 'tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3',
-'Accept-Encoding' : 'gzip, deflate',
-'Content-Type' : 'application/ocsp-request'}
 
+export = "--save" in sys.argv
 
-#Modüller = Part2
-saveInFile = "--save" in sys.argv
 
 print("""
-###      ###  _____         _    ___     _     _   
-#	 o # |_   _|  _ _ _| |__/ _ \ __(_)_ _| |_ 
-	       | || || | '_| / / (_) (_-< | ' \  _|
-               |_| \_,_|_| |_\_\\___//__/_|_||_\__|
-#	   # Proje Adı: https://github.com/TurkOsint
-###      ### Kodlayan : https://github.com/EyupErgin
+Project Name : WebScrapper
+Created : https://github.com/EyupErgin
+Github  : https://github.com/IntelSights/WebScrapper/
 """)
 
-query = input(Fore.WHITE + '[TurkOsint] Taranacak Kelimeleri Giriniz > ' + Fore.WHITE)
-results = 10000
+query = input(Fore.WHITE + 'Enter Dork : ' + Fore.WHITE)
+results = 5000
 
-#Modüller = Part3
-print(Fore.WHITE + '[TurkOsint] Taranıyor > ' + query)
+
+print(Fore.WHITE + 'Scanning > ' + query)
 for url in search(query, stop = results):
-	print('\n' + Fore.GREEN + '[+] Url Tespit Edildi: ' + Fore.WHITE+  url)
-	if saveInFile:
+	print('\n' + Fore.GREEN + '[+] URL Detected : ' + Fore.WHITE+  url)
+	if export:
 		with open(query + ".txt", "a") as file:
 			file.write(url + "\n")
 	try:
-		text = get(url, headers=headers, timeout = 1).text
+		text = get(url, timeout = 1).text
 	except:
 		continue
 	soup = BeautifulSoup(text, "html.parser")
 	links_detected = []
 	try:
-		print(Fore.GREEN + '[+] Başlık: ' + Fore.WHITE + soup.title.text.replace('\n', ''))
+		print(Fore.GREEN + '[+] Title: ' + Fore.WHITE + soup.title.text.replace('\n', ''))
 	except:
-		print(Fore.RED + '[-] Başlık: Başlık Bulunamadı')
-#Modüller = Part4
+		print(Fore.RED + '[-] Title: Title not found')
+
 	try:
 		for link in soup.findAll('a'):
 			href = link['href']
 			if not href in links_detected:
 				if href.startswith('http'):
-#Modüller = Part5
+
 					if url.split('/')[2] in href:
 						links_detected.append(href)
-#Modüller = Part6
+
 					elif query.lower() in href.lower():
-						print(Fore.GREEN + '[/] Bulunanlar : ' + href)
+						print(Fore.GREEN + '[+] Founds : ' + href)
 						links_detected.append(href)
-						if saveInFile:
+						if export:
 							with open(query + ".txt", "a") as file:
 								file.write(href + "\n")
-#Modüller = Part7
+
 					elif fuzz.ratio(link.text, href) >= 60:
-						print(Fore.GREEN + '[/] Benzer Metin ve Bağlantılar : ' + href)
+						print(Fore.GREEN + '[/] Similar Text and Links : ' + href)
 						links_detected.append(href)
-						if saveInFile:
+						if export:
 							with open(query + ".txt", "a") as file:
 								file.write(href + "\n")
 	except:
 		continue
 	if links_detected == []:
-		print(Fore.RED + '[-] İç Veri Bulunamadı')
+		print(Fore.RED + '[-] Internal Data Not Found')
+
+
