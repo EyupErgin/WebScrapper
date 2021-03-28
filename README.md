@@ -8,6 +8,7 @@ It is a tool written for digging data on the web.
 
 <h2 align="left">Features:</h2>
 
+- [x] Save Data
 - [x] Dork Support
 - [x] Website URL
 - [x] Website Title
@@ -19,7 +20,6 @@ It is a tool written for digging data on the web.
 
 ```
 git clone https://github.com/IntelSights/WebScrapper.git
-
 ```
 
 <h2 align="left">Using:</h2>
@@ -53,12 +53,72 @@ Scanning > Bill Gates
 [+] Title: Bill Gates - Wikipedia
 ```
 
+<h3 align="left">Example 2 : Dork</h2>
+
+```
+python3 WebScrapper.py  
+
+Output;
+
+Enter Dork : site:eyupergin.com
+Scanning > site:eyupergin.com
+
+[+] URL Detected : https://eyupergin.com/
+[+] Title: Access Denied
+[-] Internal Data Not Found
+
+[+] URL Detected : https://eyupergin.com/blog/
+[+] Title:  Access Denied
+[-] Internal Data Not Found
+
+```
+
+<h3 align="left">Example 3 : Save </h2>
+
+```
+python3 WebScrapper.py  --save
+
+Output;
+
+Enter Dork : site:eyupergin.com
+Scanning > site:eyupergin.com
+
+[+] URL Detected : https://eyupergin.com/
+[+] Title: Access Denied
+[-] Internal Data Not Found
+
+[+] URL Detected : https://eyupergin.com/blog/
+[+] Title:  Access Denied
+[-] Internal Data Not Found
+^C
+
+user@user:~$ cat site:eyupergin.com.txt
+```
+
+<h3 align="left">Example 4 : PDF </h2>
+```
+python3 WebScrapper.py
+
+Output;
+
+Enter Dork : site:github.com filetype:pdf
+Scanning > site:github.com filetype:pdf
+
+[+] URL Detected : http://vicziani.github.com/artifacts/asp_servlet.pdf
+[-] Title: Title not found
+[-] Internal Data Not Found
+
+[+] URL Detected : https://www.github.com/cdrfiuba/programador/wiki/At89S8253_errata.pdf
+[+] Title: AT89 Microcontrollers
+[-] Internal Data Not Found
+```
 
 <h2 align="left">To-Do:</h2>
 
-- [x] 
-- [x] 
-- [x] 
+- [x]  Infrastructure Will Be Changed
+- [x]  Modular Building Will Be Brought
+- [x]  Arguments Will Be Replaced
+- [] Url Scrapper
 
 <h2 align="left">Developers:</h2>
 
